@@ -8,7 +8,7 @@ int serachNumber;
 int* arr;
 
 
-void binarySort(int middle, int start,int end){
+void binarySearch(int middle, int start,int end){
     int newEnd;
     int newStart;
     if(start == end && arr[middle] != serachNumber){
@@ -19,11 +19,11 @@ void binarySort(int middle, int start,int end){
     }else if (arr[middle] > serachNumber){
         newStart = start;
         newEnd = middle - 1;
-        binarySort( ceil(newStart + (newEnd - newStart)/2.0), newStart, newEnd);
+        binarySearch( ceil(newStart + (newEnd - newStart)/2.0), newStart, newEnd);
     } else if (arr[middle] < serachNumber){
         newStart = middle + 1;
         newEnd = end;
-        binarySort( ceil(newStart + (newEnd - newStart)/2.0), newStart, newEnd);
+        binarySearch( ceil(newStart + (newEnd - newStart)/2.0), newStart, newEnd);
     }
 }
 
@@ -76,7 +76,7 @@ int main(){
     int middle;
     middle = ceil(listLenght/2.0) - 1;
     printf("%d %d %d\n", middle, listLenght,serachNumber);
-    binarySort(middle, 0, listLenght - 1);
+    binarySearch(middle, 0, listLenght - 1);
 
     free(arr);
 }
